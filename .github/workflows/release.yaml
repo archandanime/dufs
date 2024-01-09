@@ -86,20 +86,8 @@ jobs:
         dist_dir=`pwd`/dist
         name=$bin-$version-$target
         executable=target/$target/release/$bin
-
-        if [[ "$RUNNER_OS" == "Windows" ]]; then
-          executable=$executable.exe
-        fi
-
-        mkdir $dist_dir
-        cp $executable $dist_dir
-        cd $dist_dir
-
-
-        archive=$dist_dir/$name.tar.gz
-        tar -czf $archive *
        
-        echo FILE=$archive >> ${GITHUB_ENV}
+        echo FILE=$executable >> ${GITHUB_ENV}
         echo TAG_NAME=latest >> ${GITHUB_ENV}
         
     - name: Create release
