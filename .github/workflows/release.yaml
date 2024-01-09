@@ -96,12 +96,11 @@ jobs:
         cd $dist_dir
 
 
-       archive=$dist_dir/$name.tar.gz
-       tar -czf $archive *
+        archive=$dist_dir/$name.tar.gz
+        tar -czf $archive *
        
-       echo FILE=$archive >> ${GITHUB_ENV}
-       echo TAG_NAME=latest >> ${GITHUB_ENV}
-
+        echo FILE=$archive >> ${GITHUB_ENV}
+        echo TAG_NAME=latest >> ${GITHUB_ENV}
         
     - name: Create release
       if: github.event_name != 'pull_request' && matrix.custom != 'onlyci'
