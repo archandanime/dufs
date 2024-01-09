@@ -95,18 +95,12 @@ jobs:
         cp $executable $dist_dir
         cd $dist_dir
 
-        if [[ "$RUNNER_OS" == "Windows" ]]; then
-            archive=$dist_dir/$name.zip
-            7z a $archive *
-            echo "archive=dist/$name.zip" >> $ARCHIVE
-        else
-            archive=$dist_dir/$name.tar.gz
-            tar -czf $archive *
-            echo "archive=dist/$name.tar.gz" >> $ARCHIVE
-        fi
-        
-        echo FILE=${ARCHIVE} >> ${GITHUB_ENV}
-        echo TAG_NAME=latest >> ${GITHUB_ENV}
+
+       archive=$dist_dir/$name.tar.gz
+       tar -czf $archive *
+       
+       echo FILE=$archive >> ${GITHUB_ENV}
+       echo TAG_NAME=latest >> ${GITHUB_ENV}
 
         
     - name: Create release
