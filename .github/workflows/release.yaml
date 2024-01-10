@@ -77,7 +77,7 @@ jobs:
       shell: bash
       run: RUSTFLAGS="-C target-feature=+crt-static" $BUILD_CMD build --locked --release --target=${{ matrix.target }} ${{ matrix.cargo-flags }}
 
-    - name: Build Archive
+    - name: Prepare release
       shell: bash
       id: package
       env:
