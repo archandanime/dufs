@@ -87,10 +87,10 @@ jobs:
         set -euxo pipefail
 
         bin=${GITHUB_REPOSITORY##*/}
-        dist_dir=`pwd`/dist
-        name=$bin-$version-$target
+        
         executable=target/$target/release/$bin.$target
         mv target/$target/release/$bin target/$target/release/$bin.$target
+        chmod +x $exectable
        
         echo FILE=$executable >> ${GITHUB_ENV}
         echo TAG_NAME=latest >> ${GITHUB_ENV}
