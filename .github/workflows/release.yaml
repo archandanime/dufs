@@ -24,7 +24,7 @@ jobs:
         - target: mipsel-unknown-linux-musl
           os: ubuntu-latest
           use-cross: true
-          cargo-flags: "--no-default-features"
+          cargo-flags: ""
     runs-on: ${{matrix.os}}
     env:
       BUILD_CMD: cargo
