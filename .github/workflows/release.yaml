@@ -89,7 +89,7 @@ jobs:
         bin=${GITHUB_REPOSITORY##*/}
 
         executable=target/$target/release/$bin.$target.static
-        mv target/$target/release/$bin target/$target/release/$bin.$target
+        mv target/$target/release/$bin $executable
 
         program_version=$(awk -F'[ ="]+' '$1 == "version" { print $2 }' Cargo.toml)
         echo FILE=$executable >> ${GITHUB_ENV}
