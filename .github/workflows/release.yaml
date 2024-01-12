@@ -68,7 +68,7 @@ jobs:
       run: |
         gcc --version || true
         rustup -V
-        rustup toolchain lis - Proxy server:  e.g. nginx, cloudflaret
+        rustup toolchain list
         rustup default
         cargo -V
         rustc -V
