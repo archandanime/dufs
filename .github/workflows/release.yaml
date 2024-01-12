@@ -93,7 +93,7 @@ jobs:
 
         program_version=$(awk -F'[ ="]+' '$1 == "version" { print $2 }' Cargo.toml)
         echo FILE=$executable >> ${GITHUB_ENV}
-        echo TAG_NAME=$program_version >> ${GITHUB_ENV}
+        echo TAG_NAME=v$program_version >> ${GITHUB_ENV}
 
     - name: Create Release
       if: github.event_name != 'pull_request' && matrix.custom != 'onlyci'
