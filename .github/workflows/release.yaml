@@ -68,7 +68,7 @@ jobs:
       run: |
         gcc --version || true
         rustup -V
-        rustup toolchain list
+        rustup toolchain lis - Proxy server:  e.g. nginx, cloudflaret
         rustup default
         cargo -V
         rustc -V
@@ -92,7 +92,7 @@ jobs:
         mv target/$target/release/$bin target/$target/release/$bin.$target
        
         echo FILE=$executable >> ${GITHUB_ENV}
-        echo TAG_NAME=latest >> ${GITHUB_ENV}
+        echo TAG_NAME=$version >> ${GITHUB_ENV}
         
     - name: Create release
       if: github.event_name != 'pull_request' && matrix.custom != 'onlyci'
